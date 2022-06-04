@@ -23,14 +23,6 @@ def gen_json(files):
         data = sorted(data, key=lambda l: l['name'])
     return json.dumps(data)
 
-# def run(data):
-#     URL = 'http://[linux-instance-external-IP]/fruits/'
-#     response = requests.post(url=URL, data=data)
-#     return print(f"{response.status_code}")
-
-# def upload_desc(data):
-#     pool = Pool(len(data))
-#     pool.map(run, data)
 def upload_desc(data, url):
     for item in data:
         r = requests.post(url, item)
