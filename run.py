@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
+
 import os
 import requests
 import json
-from multiprocessing import Pool
 
-def gen_json(files):
+def generate_json_data(files):
     data = []
     for file in os.listdir(files):
         filename = file.strip('.txt')
@@ -24,13 +24,15 @@ def gen_json(files):
 
 def upload_desc(data, url):
     for item in data:
-        r = requests.post(url, item)
-        print(f"{r.status_code}", item)
+        try:
+            r = requests.post(url, item)
+        except Exception as e:
+            print(f"Error: {e}", f"Status code: {r.status_code}", sep='\n')
 
 def main():
     url = 'http://104.155.136.80/fruits/'
     file = './supplier-data/descriptions/'
-    data = gen_json(file)
+    data = generate_json_data(file)
     upload_desc(data=data, url=url)
 
 if __name__ == '__main__':
