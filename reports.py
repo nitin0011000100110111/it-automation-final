@@ -11,4 +11,3 @@ def generate_report(filename, title, paragraph):
   empty_line = Spacer(1,20)
   paragraph = Paragraph(paragraph)
   return report.build([report_title, empty_line, paragraph])
-
