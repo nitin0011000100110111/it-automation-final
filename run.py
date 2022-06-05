@@ -4,7 +4,6 @@ import requests
 import json
 from multiprocessing import Pool
 
-
 def gen_json(files):
     data = []
     for file in os.listdir(files):
