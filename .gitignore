@@ -1,4 +1,2 @@
-.__pycache__
-.txt
-desc
-image
+*.__pycache__
+*.txt
